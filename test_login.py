@@ -12,7 +12,7 @@ class LoginTest(unittest.TestCase):
         """initialize the browser and opens the page"""
         #platform.system()
         options = Options()
-        options.headless = True
+        #options.headless = True
 				# paste the chromedriver in this location : C:\Program Files\Python37 (python installation folder)
         cls.driver = webdriver.Chrome('./'+platform.system() + '/chromedriver.exe',options=options)
         cls.driver.implicitly_wait(15)
@@ -26,7 +26,14 @@ class LoginTest(unittest.TestCase):
         # """get the product name of listed products, search should be done before this function"""
         try:
             email_input = self.driver.find_element_by_id("session_email")
-            email_input.keys("imelist@houseofkim.info")
+            email_input.send_keys("login")
+
+            pass_input = self.driver.find_element_by_id("session_password")
+            pass_input.send_keys("pass")
+
+            btn_login = self.driver.find_element_by_xpath("/html/body/div/div/div/div/form/input[5]")
+            btn_login.click()
+
             # assert number of products
             #self.assertEqual(7, len(product_name_list))
 

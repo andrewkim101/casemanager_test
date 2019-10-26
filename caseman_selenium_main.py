@@ -1,5 +1,5 @@
 import unittest
-from .test_login import LoginTest
+from test_login import LoginTest
 #from .test_ime import SearchTests
 
 # save classes as tests
