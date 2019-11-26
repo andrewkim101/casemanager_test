@@ -12,7 +12,7 @@ class LoginTest(unittest.TestCase):
     def setUpClass(cls):
         """initialize the browser and opens the page"""
         #platform.system()
-        options = Options
+        options = Options()
         options.add_argument('--headless')
         #options.headless = True
 				# paste the chromedriver in this location : C:\Program Files\Python37 (python installation folder)
@@ -22,7 +22,7 @@ class LoginTest(unittest.TestCase):
         else: 
             separ = '/'
         print(os.path.abspath(__file__) + separ + platform.system() + separ + 'chromedriver.exe')
-        cls.driver = webdriver.Chrome(executable_path = './Linux/chromedriver.exe', options=options)
+        cls.driver = webdriver.Chrome(executable_path = platform.system() + '/chromedriver.exe', options=options)
         cls.driver.implicitly_wait(15)
         cls.driver.maximize_window()
 
