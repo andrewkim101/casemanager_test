@@ -21,7 +21,7 @@ class LoginTest(unittest.TestCase):
             separ = '\\'
         else: 
             separ = '/'
-        print(os.path.abspath(__file__) + separ + platform.system() + separ + 'chromedriver.exe')
+        #print(os.path.abspath(__file__) + separ + platform.system() + separ + 'chromedriver.exe')
         cls.driver = webdriver.Chrome(executable_path = platform.system() + '/chromedriver.exe', options=options)
         cls.driver.implicitly_wait(15)
         cls.driver.maximize_window()
