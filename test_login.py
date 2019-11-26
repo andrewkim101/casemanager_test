@@ -1,3 +1,4 @@
+import os
 import unittest
 import platform
 from selenium import webdriver
@@ -11,10 +12,16 @@ class LoginTest(unittest.TestCase):
     def setUpClass(cls):
         """initialize the browser and opens the page"""
         #platform.system()
-        options = Options()
+        options = None
         #options.headless = True
 				# paste the chromedriver in this location : C:\Program Files\Python37 (python installation folder)
-        cls.driver = webdriver.Chrome('./'+platform.system() + '/chromedriver.exe',options=options)
+       
+        if platform.system() == 'Windows': 
+            separ = '\\'
+        else: 
+            separ = '/'
+        print(os.path.abspath(__file__) + separ + platform.system() + separ + 'chromedriver.exe')
+        cls.driver = webdriver.Chrome(executable_path = os.path.abspath(__file__)+ separ + platform.system() + separ + 'chromedriver.exe', options=options)
         cls.driver.implicitly_wait(15)
         cls.driver.maximize_window()
 
