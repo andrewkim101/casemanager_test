@@ -12,7 +12,8 @@ class LoginTest(unittest.TestCase):
     def setUpClass(cls):
         """initialize the browser and opens the page"""
         #platform.system()
-        options = None
+        options = Options
+        options.add_argument('--headless')
         #options.headless = True
 				# paste the chromedriver in this location : C:\Program Files\Python37 (python installation folder)
        
